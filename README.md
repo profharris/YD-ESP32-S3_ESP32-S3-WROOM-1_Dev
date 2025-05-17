@@ -1,23 +1,24 @@
 # YD-ESP32-S3 ESP32-S3-WROOM-1 Dev N16R8/N8R2 (44-Pin)
 
-YD-ESP32-S3_ESP32-S3-WROOM-1_Dev N16R8/N8R2 (44-Pin)
-[ESP32-S3-DevKitC-1 clone]  (11-pins wide × 22-pins) (1.1" × 2.5")
+***WORK IN PROGRESS*** &nbsp; &nbsp; Prof. Michael P. Harris &nbsp; &nbsp; *05/13/2025*
 
-VCC-GND Studio, ESP32-S3 Core Development Board: ‘YD-ESP32-S3’
-Also availiable as: Binghe ‘ESP32-S3 Core Development board’
-Also availiable as: ‘ESP32-S3-WROOM-1 Dev N16R8/N8R2’
+{ESP32-S3-DevKitC-1 clone}  (11-pins wide × 22-pins) (1.1" × 2.5")
+
+**VCC-GND Studio**, ESP32-S3 Core Development Board: ‘**YD-ESP32-S3**’.<br/>
+Also availiable as: Binghe ‘**ESP32-S3 Core Development board**’.<br/>
+Also availiable as: ‘**ESP32-S3-WROOM-1 Dev N16R8/N8R2**’.
 
 This dual USB-C ESP32-S3 Dev Board is easily recognized by its’ four
-in-a-row LEDs... the WS2812 RGB LED (GPIO48), followed by a (Red)
+in-a-row LEDs...<br/>the WS2812 RGB LED (GPIO48), followed by a (Red)
 Power LED, a (Green) TX LED, and a (Blue) RX LED.
 
-This 44-pin inexpensive workhorse ESP32-S3 Dev Board is also easily
+This _44-pin_ inexpensive workhorse ESP32-S3 Dev Board is also easily
 identified by the two unique jumper pads on the front and one on the
 backside. Right next to the RGB LED on the right side are a pair of
-solder jumber pads labled ‘RGB’. On the left side a little lower
+solder jumber pads labled ‘**RGB**’. On the left side a little lower
 than the RGB LED is a second pair of solder jumper pads labled
-‘IN-OUT’. On the backside of the board, is a third set of solder
-jumber pads labled ‘USB-OTG’. The function of these solder jumpers
+‘**IN-OUT**’. On the backside of the board, is a third set of solder
+jumber pads labled ‘**USB-OTG**’. The function of these solder jumpers
 are discussed a little later below under ‘NOTES¹’.
 
 /*******************************************************************************

@@ -4,7 +4,7 @@
 
 {ESP32-S3-DevKitC-1 clone}  (11-pins wide × 22-pins) (1.1" × 2.5")
 
-**VCC-GND Studio**, ESP32-S3 Core Development Board: ‘**YD-ESP32-S3**’.<br/>
+**VCC-GND Studio**, ESP32-S3 Core Development Board:&nbsp; ‘**YD-ESP32-S3**’.<br/>
 Also availiable as: Binghe ‘**ESP32-S3 Core Development board**’.<br/>
 Also availiable as: ‘**ESP32-S3-WROOM-1 Dev N16R8/N8R2**’.
 
@@ -153,7 +153,7 @@ The two tables below provide the Name and Function of the Pins on
 both sides of this Dev board (J1 & J3). The Pin names are shown in
 the ESP32-S3-DevKitC-1 image. The pin numbering matches the Board
 Schematic (PDF).
-
+```
 【J1】 Left Side
 
 --- ------- ------- ------------------------------------------------------------
@@ -181,7 +181,8 @@ No. Name    Type¹   Function
 20  IO14    I/O/T   RTC_GPIO14, GPIO14, TOUCH14, ADC2_CH3, FSPIWP,  FSPIDQS,  SUBSPIWP
 21  5V      P       5V0 power supply    (IN-OUT jumper pad)
 22  GND     G       Ground
-
+```
+```
 【J3】 Right Side
 
 --- ------- ------- ------------------------------------------------------------
@@ -211,7 +212,7 @@ No. Name    Type¹   Function
 23  GND     G      Ground
 
 Type¹:  P: Power; G: Ground; I: Input; O: Output; T: High impedance.
-
+```
 ================================================================================
 ### The ESP32-S3 peripherals include:
 
@@ -260,7 +261,7 @@ development platform for AIoT and for Arduino enthusiasts.
 
 It integrates a low-power MCU System-on-Chip (SoC) with 2.4GHz WiFi
 and Bluetooth LE dual-mode wireless communication.
-
+```
 Parameters：
                   Microcontroller: ESP32-S3
                              Chip: WROOM-1-N16R8, WROOM-1-N8R2
@@ -280,10 +281,11 @@ Analog-to-Digital Converter (ADC): 12-bit resolution
                      Power Supply: USB-C or external 5V supply
                     USB Interface: USB-UART bridge for programming
                                    and debugging
-
+```
 --------------------------------------------------------------------
 
-Tools > USB CDC On Boot > Enabled   if using the USB OTG USB-C port.
+Tools > USB CDC On Boot > Enabled<br/>
+if using the USB OTG USB-C port.
 
 ====================================================================
 ```

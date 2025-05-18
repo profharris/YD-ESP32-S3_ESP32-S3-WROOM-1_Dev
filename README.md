@@ -1,6 +1,6 @@
 # YD-ESP32-S3 ESP32-S3-WROOM-1 Dev N16R8/N8R2 (44-Pin)
 
-***WORK IN PROGRESS*** &nbsp; &nbsp; Prof. Michael P. Harris &nbsp; &nbsp; *05/13/2025*
+***WORK IN PROGRESS*** &nbsp; &nbsp; Prof. Michael P. Harris &nbsp; &nbsp; *05/17/2025*
 
 {ESP32-S3-DevKitC-1 clone}&nbsp;  (11-pins wide × 22-pins)&nbsp; (1.1" × 2.5")
 
@@ -67,36 +67,36 @@ ESP32-S3 Pins: 0…18 GPIO, 19…20 D+/D-, 21 GPIO, 22…25 Do Not Exist, GPIO21
 
 *******************************************************************************/
 ```
-——————————————————————————————————————————————————————————————
+———————————————————————————————————————————————————
 # NOTES¹:&nbsp; ‘RGB’, ‘IN-OUT’, and ‘USB-OTG’ solder jumper pads
 
 This ‘ESP32 S3 DevKitC1 Clone’ board has a solder pad jumper labled
-‘**IN-OUT**’, another ‘**RGB**’ ( _RGB CTRL_ ), and third ‘**USB-OTG**’ 
-on the back;&nbsp; ***--All Open*** on most boards,&nbsp; but I have 
-one board that came with a SMT capacitor across ‘**RGB**’.&nbsp; It may 
-be necessary to solder closed some of the jumpers for the devices to 
+‘**IN-OUT**’, another ‘**RGB**’ ( _RGB CTRL_ ), and third ‘**USB-OTG**’
+on the back;&nbsp; ***--All Open*** on most boards,&nbsp; but I have
+one board that came with a SMT capacitor across ‘**RGB**’.&nbsp; It may
+be necessary to solder closed some of the jumpers for the devices to
 work with your configuration/application.
 
-The ‘**IN-OUT**’ jumper, when closed,&nbsp; bypasses 1 diode,&nbsp; making 
-USB VBus power coming to 5Vin.&nbsp; If 5Vin is also connected to external 
-source,&nbsp; it can get back-fed by USB 5V0,&nbsp; which is usually 
-undesirable.&nbsp; But this USB bus is protected by another diode,&nbsp; 
+The ‘**IN-OUT**’ jumper, when closed,&nbsp; bypasses 1 diode,&nbsp; making
+USB VBus power coming to 5Vin.&nbsp; If 5Vin is also connected to external
+source,&nbsp; it can get back-fed by USB 5V0,&nbsp; which is usually
+undesirable.&nbsp; But this USB bus is protected by another diode,&nbsp;
 it cannot get back-fed by an external source.
 
-When ‘**IN-OUT**’ is open,&nbsp; 5Vin and USB VBus are separated by a diode, 
+When ‘**IN-OUT**’ is open,&nbsp; 5Vin and USB VBus are separated by a diode,
 USB power does not come to 5Vin.
 
-The ‘**USB-OTG**’ jumper on the backside,&nbsp; when closed,&nbsp; connects 
+The ‘**USB-OTG**’ jumper on the backside,&nbsp; when closed,&nbsp; connects
 together the USB VBus lines from both USB-C connectors.
 
 ***REF:*** Third-party ESP32-S3 development boards ‘IN-OUT’ and ‘USB-OTG’
 pads - What do they do?
 https://www.reddit.com/r/esp32/comments/10rdngp/thirdparty_esp32s3_development_boards_inout_and/?rdt=39953
 
-——————————————————————————————————————————————————————————————
+———————————————————————————————————————————————————
 # NOTES²:&nbsp; WS2812 RGB LED (GPIO48)
 
-The RGB LED, when accessed as **LED_BUILTIN**,&nbsp; works with the Arduino IDE 
+The RGB LED, when accessed as **LED_BUILTIN**,&nbsp; works with the Arduino IDE
 common _digitalWrite()_ command.<br/>
 The RGB LED when accessed as **RGB_BUILTIN** works with the _neopixelWrite()_ command.
 
@@ -107,7 +107,7 @@ that uses the onboard RGB LED.
 
 YOU MAY NEED TO ADD:&nbsp;&nbsp; '#define RGB_BUILTIN 48'
 
-——————————————————————————————————————————————————————————————
+———————————————————————————————————————————————————
 ## YD-ESP32-S3 N16R8 &nbsp;--by VCC-GND Studio
 
 The **YD-ESP32-S3** Core Board is designed by VCC-GND Studio. Visit
@@ -118,7 +118,7 @@ can also be used for practical applications.
 It is equipped with two USB Type-C ports.&nbsp; one is a hardware USB-to-Serial port
 via the CH343P (WCH Qinheng),&nbsp; and the other is ESP32-S3 direct USB port.
 
-The YD-ESP32-S3 is an entry-level development board equipped with a 2.4GHz 
+The YD-ESP32-S3 is an entry-level development board equipped with a 2.4GHz
 WiFi 802.11 b/g/n + Bluetooth® LE module **ESP32-S3-WROOM-1**.
 
 Most of the pins of the modules on the board have been lead out to
@@ -128,7 +128,7 @@ the development board into a breadboard for use.
 
 ***REF:*** YD-ESP32-S3 N16R8 &nbsp;(ESP32-S3-WROOM-1 Dev N8R2)
 
-——————————————————————————————————————————————————————————————
+———————————————————————————————————————————————————
 ## [CircuitPython 8.2.8] &nbsp;Built-in modules available:<br/>
 https://circuitpython.org/board/yd_esp32_s3_n16r8/
 
@@ -147,7 +147,7 @@ socketpool, ssl, storage, struct, supervisor, synthio, sys, terminalio,
 time, touchio, traceback, ulab, usb_cdc, usb_hid, usb_midi, vectorio,
 watchdog, wifi, zlib; Included frozen(?) modules: neopixel
 
-——————————————————————————————————————————————————————————————
+———————————————————————————————————————————————————
 # NOTES³:&nbsp; All Pin Names and Functions
 
 The two tables below provide the Name and Function of the Pins on
@@ -215,7 +215,7 @@ No. Name    Type¹   Function
 Type¹:  P: Power; G: Ground; I: Input; O: Output; T: High impedance.
 ```
 
-——————————————————————————————————————————————————————————————
+———————————————————————————————————————————————————
 ### The ESP32-S3 peripherals include:
 ```
    20 Analog-to-Digital Converter (ADC) channels
@@ -232,7 +232,7 @@ with assigned functions by default.
 
 ### About this development board:
 
-_Low-power performance_:<br/> 
+_Low-power performance_:<br/>
 he ‘VCC-GND Studio, YD-ESP32-S3’ / ‘Binghe,
 ESP32-S3 Core development board’ integrates 2.4GHz WiFi 802.11 b/g/n
 and Bluetooth5(LE) dual-mode communication module,&nbsp; perfect for
@@ -243,18 +243,18 @@ The ESP32-S3 development board supports
 multiple low-power modes,&nbsp; which can be configured according to
 different application scenarios to provide longer battery life.
 
-_Simple programming and debugging_:<br/> 
+_Simple programming and debugging_:<br/>
 The ESP32-S3 module makes it easy
 to program & burn in your ESP32-S3 board via dual USB Type-C ports,&nbsp;
 with a choice of USB OTG or UART modes.
 
-_Dual download modes_:<br/> 
+_Dual download modes_:<br/>
 The ESP32-S3-DevKitC-1 module supports both USB
 Direct connection download -and- USB to Serial port download,&nbsp; providing
 more flexibility and convenience.
 
-_Diverse connectivity options_:<br/> 
-The ESP32-S3-DevKitC-1 supports dual-mode 2.4GHZ WiFi 802.11 b/g/n and Bluetooth5.0(LE) 
+_Diverse connectivity options_:<br/>
+The ESP32-S3-DevKitC-1 supports dual-mode 2.4GHZ WiFi 802.11 b/g/n and Bluetooth5.0(LE)
 connectivity for a wide range of smart devices,&nbsp; making it ideal for Internet of Things
 (IoT) applications.
 
@@ -278,12 +278,12 @@ Analog-to-Digital Converter (ADC): 12-bit resolution
                     USB Interface: USB-UART bridge for programming
                                    and debugging
 ```
-——————————————————————————————————————————————————————————————
+———————————————————————————————————————————————————
 
 Tools > USB CDC On Boot > Enabled<br/>
 if using the USB OTG USB-C port.
 
-——————————————————————————————————————————————————————————————
+———————————————————————————————————————————————————
 <hr>
 
 # Blink.ino

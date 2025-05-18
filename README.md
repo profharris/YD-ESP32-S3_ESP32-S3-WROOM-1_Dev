@@ -2,23 +2,23 @@
 
 ***WORK IN PROGRESS*** &nbsp; &nbsp; Prof. Michael P. Harris &nbsp; &nbsp; *05/13/2025*
 
-{ESP32-S3-DevKitC-1 clone}  (11-pins wide × 22-pins) (1.1" × 2.5")
+{ESP32-S3-DevKitC-1 clone}&nbsp;  (11-pins wide × 22-pins)&nbsp; (1.1" × 2.5")
 
-**VCC-GND Studio**, ESP32-S3 Core Development Board:&nbsp; ‘**YD-ESP32-S3**’.<br/>
-Also availiable as: Binghe ‘**ESP32-S3 Core Development board**’.<br/>
-Also availiable as: ‘**ESP32-S3-WROOM-1 Dev N16R8/N8R2**’.
+> **VCC-GND Studio**,&nbsp; ESP32-S3 Core Development Board:&nbsp; ‘**YD-ESP32-S3**’.<br/>
+> Also availiable as:&nbsp; Binghe ‘**ESP32-S3 Core Development board**’.<br/>
+> Also availiable as:&nbsp; ‘**ESP32-S3-WROOM-1 Dev N16R8/N8R2**’.
 
-This dual USB-C ESP32-S3 Dev Board is easily recognized by its’ four
-in-a-row LEDs...<br/>the WS2812 RGB LED (GPIO48), followed by a (Red)
-Power LED, a (Green) TX LED, and a (Blue) RX LED.
+This dual USB-C,&nbsp; ESP32-S3 Dev Board,&nbsp; is easily recognized by its’ four
+in-a-row LEDs...<br/>a WS2812 **RGB LED** (GPIO48), followed by a (Red)
+**Power LED**, a (Green) **TX LED**, and a (Blue) **RX LED**.
 
-This _44-pin_ inexpensive workhorse ESP32-S3 Dev Board is also easily
-identified by the two unique jumper pads on the front and one on the
-backside. Right next to the RGB LED on the right side are a pair of
-solder jumber pads labled ‘**RGB**’. On the left side a little lower
+This _44-pin_ inexpensive workhorse&nbsp; ESP32-S3 Dev Board is also easily
+identified by the two unique solder jumper pads on the front,&nbsp; and one on the
+backside.&nbsp; Right next to the RGB LED on the right side are a pair of
+solder jumber pads labled ‘**RGB**’.&nbsp; On the left side a little lower
 than the RGB LED is a second pair of solder jumper pads labled
-‘**IN-OUT**’. On the backside of the board, is a third set of solder
-jumber pads labled ‘**USB-OTG**’. The function of these solder jumpers
+‘**IN-OUT**’.&nbsp; On the backside of the board, is a third set of solder
+jumber pads labled ‘**USB-OTG**’.&nbsp; The function of these solder jumpers
 are discussed a little later below under ‘NOTES¹’.
 
 ```
@@ -70,45 +70,44 @@ ESP32-S3 Pins: 0…18 GPIO, 19…20 D+/D-, 21 GPIO, 22…25 Do Not Exist, GPIO21
 ——————————————————————————————————————————————————————————————
 # NOTES¹: ‘RGB’, ‘IN-OUT’, and ‘USB-OTG’ solder jumper pads
 
-This ‘ESP32 S3 DevKitC1 Clone’ board has a solder pad jumper called
-‘IN-OUT’, another ‘RGB’ (RGB CTRL), and third ‘USB-OTG’ on the back;
---All Open. But it may be necessary to solder closed some of the
-jumpers for the devices to work with your configuration/application.
+This ‘ESP32 S3 DevKitC1 Clone’ board has a solder pad jumper labled
+‘**IN-OUT**’, another ‘**RGB**’ ( _RGB CTRL_ ), and third ‘**USB-OTG**’ 
+on the back;&nbsp; ***--All Open*** on most boards,&nbsp; but I have 
+one board that came with a SMT capacitor across ‘**RGB**’.&nbsp; It may 
+be necessary to solder closed some of the jumpers for the devices to 
+work with your configuration/application.
 
-The ‘IN-OUT’ jumper, when closed, bypasses 1 diode, making USB VBus
-power coming to 5Vin. If 5Vin is also connected to external source,
-it can get back-fed by USB, which is usually undesirable. But this
-USB bus is protected by another diode, it cannot get back-fed by
-external source.
+The ‘**IN-OUT**’ jumper, when closed,&nbsp; bypasses 1 diode,&nbsp; making 
+USB VBus power coming to 5Vin.&nbsp; If 5Vin is also connected to external 
+source,&nbsp; it can get back-fed by USB 5V0,&nbsp; which is usually 
+undesirable.&nbsp; But this USB bus is protected by another diode,&nbsp; 
+it cannot get back-fed by an external source.
 
-When ‘IN-OUT’ is open, 5Vin and USB VBus are separated by diode, USB
-power does not come to 5Vin.
+When ‘**IN-OUT**’ is open,&nbsp; 5Vin and USB VBus are separated by a diode, 
+USB power does not come to 5Vin.
 
-The ‘USB-OTG’ jumper, when closed, connects together USB VBus lines
-from both USB-C connectors.
+The ‘**USB-OTG**’ jumper on the backside,&nbsp; when closed,&nbsp; connects 
+together the USB VBus lines from both USB-C connectors.
 
-REF: Third-party ESP32-S3 development boards ‘IN-OUT’ and ‘USB-OTG’
+***REF:*** Third-party ESP32-S3 development boards ‘IN-OUT’ and ‘USB-OTG’
 pads - What do they do?
 https://www.reddit.com/r/esp32/comments/10rdngp/thirdparty_esp32s3_development_boards_inout_and/?rdt=39953
 
 ——————————————————————————————————————————————————————————————
 # NOTES²: WS2812 RGB LED (GPIO48)
 
-The RGB LED, accessed as LED_BUILTIN, works with Arduino IDE common
-digitalWrite() command. The RGB LED accessed as RGB_BUILTIN works
-with the neopixelWrite() command.
+The RGB LED, when accessed as **LED_BUILTIN**,&nbsp; works with the Arduino IDE 
+common _digitalWrite()_ command.&nbsp; The RGB LED when accessed as **RGB_BUILTIN** 
+works with the _neopixelWrite()_ command.
 
-Arduino IDE:
-    There is a BlinkRGB under the ESP32->GPIO examples that uses the
-    onboard RGB LED.
+Arduino IDE:&nbsp; There is a _BlinkRGB.ino_ under the&nbsp; ESP32->GPIO examples
+that uses the onboard RGB LED.
 
-REF: https://forum.arduino.cc/t/esp32-s3-devkit-problems/1136923/4
+***REF:*** https://forum.arduino.cc/t/esp32-s3-devkit-problems/1136923/4
 
-YOU MAY NEED TO ADD: '#define RGB_BUILTIN 48'
+YOU MAY NEED TO ADD:&nbsp;&nbsp; '#define RGB_BUILTIN 48'
 
 ——————————————————————————————————————————————————————————————
-https://circuitpython.org/board/yd_esp32_s3_n16r8/
-
 ## YD-ESP32-S3 N16R8 --by VCC-GND Studio
 
 The YD-ESP32-S3 Core Board is designed by VCC-GND Studio. Visit
@@ -127,10 +126,11 @@ the pin rows on both sides of the development board. Developers can
 easily connect various peripheral devices through jumpers, or plug
 the development board into a breadboard for use.
 
-REF: YD-ESP32-S3 N16R8  (ESP32-S3-WROOM-1 Dev N8R2)
+***REF:*** YD-ESP32-S3 N16R8 &nbsp;(ESP32-S3-WROOM-1 Dev N8R2)
 
 ——————————————————————————————————————————————————————————————
-## [CircuitPython 8.2.8] Built-in modules available:
+## [CircuitPython 8.2.8] Built-in modules available:<br/>
+https://circuitpython.org/board/yd_esp32_s3_n16r8/
 
 _asyncio, _bleio, _pixelmap, adafruit_bus_device, adafruit_pixelbuf,
 aesio, alarm, analogbufio, analogio, array, atexit, audiobusio,
@@ -151,7 +151,7 @@ watchdog, wifi, zlib; Included frozen(?) modules: neopixel
 # NOTES³: All Pin Names and Functions
 
 The two tables below provide the Name and Function of the Pins on
-both sides of this Dev board (J1 & J3). The Pin names are shown in
+both sides of this Dev board (J1 & J3).<br/>The Pin names are shown in
 the ESP32-S3-DevKitC-1 image. The pin numbering matches the Board
 Schematic (PDF).
 ```
@@ -226,43 +226,38 @@ Type¹:  P: Power; G: Ground; I: Input; O: Output; T: High impedance.
     2 I²S interfaces
    14 Capacitive sensing GPIOs
 ```
-Due to the ESP32 chip multiplexing feature, you can assign almost
-any function to the GPIO of your choice. However, there are pins
+Due to the ESP32 chip multiplexing feature,&nbsp; you can assign almost
+any function to the GPIO of your choice.&nbsp; However, there are pins
 with assigned functions by default.
 
 ### About this development board:
 
-Low-power performance: The ‘VCC-GND Studio, YD-ESP32-S3’ / ‘Binghe,
+_Low-power performance_:<br/> 
+he ‘VCC-GND Studio, YD-ESP32-S3’ / ‘Binghe,
 ESP32-S3 Core development board’ integrates 2.4GHz WiFi 802.11 b/g/n
-and Bluetooth5(LE) dual-mode communication module, perfect for
+and Bluetooth5(LE) dual-mode communication module,&nbsp; perfect for
 Arduino Internet of Things (IoT) projects.
 
-Multiple Power Saving Modes: The ESP32-S3 development board supports
-multiple low-power modes, which can be configured according to
+_Multiple Power Saving Modes_:<br/>
+The ESP32-S3 development board supports
+multiple low-power modes,&nbsp; which can be configured according to
 different application scenarios to provide longer battery life.
 
-Simple programming and debugging: The ESP32-S3 module makes it easy
-to program & burn in your ESP32-S3 board via dual USB Type-C ports,
+_Simple programming and debugging_:<br/> 
+The ESP32-S3 module makes it easy
+to program & burn in your ESP32-S3 board via dual USB Type-C ports,&nbsp;
 with a choice of USB OTG or UART modes.
 
-Dual download modes: The ESP32-S3-DevKitC-1 module supports both USB
-direct connection download & USB to serial port download, providing
+_Dual download modes_:<br/> 
+The ESP32-S3-DevKitC-1 module supports both USB
+Direct connection download -and- USB to Serial port download,&nbsp; providing
 more flexibility and convenience.
 
-Diverse connectivity options: The ESP32-S3-DevKitC-1 supports
-dual-mode WiFi 802.11 b/g/n and Bluetooth5.0(LE) connectivity for a
-wide range of smart devices, making it ideal for Internet of Things
+_Diverse connectivity options_:<br/> 
+The ESP32-S3-DevKitC-1 supports dual-mode 2.4GHZ WiFi 802.11 b/g/n and Bluetooth5.0(LE) 
+connectivity for a wide range of smart devices,&nbsp; making it ideal for Internet of Things
 (IoT) applications.
 
-
-### Product Description：
-
-The ‘Binghe ESP32-S3 Development Board’, equipped with the
-ESP32-S3-DevKitC-1 WROOM-1-N16R8 module, is a high-performance
-development platform for AIoT and for Arduino enthusiasts.
-
-It integrates a low-power MCU System-on-Chip (SoC) with 2.4GHz WiFi
-and Bluetooth LE dual-mode wireless communication.
 ```
 Parameters：
                   Microcontroller: ESP32-S3
@@ -299,17 +294,17 @@ if using the USB OTG USB-C port.
 */
 
 void setup() {
-  // initialize digital pin LED_BUILTIN as an output.
-  pinMode(LED_BUILTIN, OUTPUT);
-  Serial.begin(115200);
+&nbsp;  // initialize digital pin LED_BUILTIN as an output.
+&nbsp;  pinMode(LED_BUILTIN, OUTPUT);
+&nbsp;  Serial.begin(115200);
 }
 
 void loop() {
-  Serial.print('*');
-  digitalWrite(LED_BUILTIN, HIGH);  // turn the LED On
-  delay(1000);                      // wait for a second
-  digitalWrite(LED_BUILTIN, LOW);   // turn the LED Off
-  delay(1000);                      // wait for a second
+&nbsp;  Serial.print('*');
+&nbsp;  digitalWrite(LED_BUILTIN, HIGH);  // turn the LED On
+&nbsp;  delay(1000);                      // wait for a second
+&nbsp;  digitalWrite(LED_BUILTIN, LOW);   // turn the LED Off
+&nbsp;  delay(1000);                      // wait for a second
 }
 </code></pre>
 <hr>
@@ -320,14 +315,14 @@ void loop() {
 /* BlinkRGB.ino
    ESP32-S3-WROOM-1 Dev / YD-ESP32-S3
 
- Demonstrate usage of the onboard RGB LED on some ESP dev boards.
+ Demonstrate usage of the onboard RGB LED on some ESP32-S3 dev boards.
 
- Calling digitalWrite(RGB_BUILTIN, HIGH) will use hidden RGB driver.
+ Calling _digitalWrite(RGB_BUILTIN, HIGH)_ will use the hidden RGB driver.
 
- neopixelWrite() demonstrates control of each color channel:
+ _neopixelWrite()_ demonstrates control of each color channel:
  void neopixelWrite(uint8_t pin, uint8_t Red, uint8_t Green, uint8_t Blue)
 
- WARNING: After using digitalWrite() to drive the RGB LED it will be
+ WARNING: After using _digitalWrite()_ to drive the RGB LED it will be
  impossible to drive the same pin with normal HIGH/LOW levels.
 */
 
@@ -336,20 +331,20 @@ void loop() {
 #define RGB_BUILTIN 48
 
 void setup() {
-  // No need to initialize the RGB LED
+&nbsp;  // No need to initialize the RGB LED
 }
 
 void loop() {
-  neopixelWrite(RGB_BUILTIN,RGB_BRIGHTNESS,RGB_BRIGHTNESS,RGB_BRIGHTNESS); // White
-  delay(1000);
-  neopixelWrite(RGB_BUILTIN,RGB_BRIGHTNESS,0,0); // Red
-  delay(1000);
-  neopixelWrite(RGB_BUILTIN,0,RGB_BRIGHTNESS,0); // Green
-  delay(1000);
-  neopixelWrite(RGB_BUILTIN,0,0,RGB_BRIGHTNESS); // Blue
-  delay(1000);
-  neopixelWrite(RGB_BUILTIN,0,0,0); // Off / black
-  delay(1000);
+&nbsp;  neopixelWrite(RGB_BUILTIN,RGB_BRIGHTNESS,RGB_BRIGHTNESS,RGB_BRIGHTNESS); // White
+&nbsp;  delay(1000);
+&nbsp;  neopixelWrite(RGB_BUILTIN,RGB_BRIGHTNESS,0,0); // Red
+&nbsp;  delay(1000);
+&nbsp;  neopixelWrite(RGB_BUILTIN,0,RGB_BRIGHTNESS,0); // Green
+&nbsp;  delay(1000);
+&nbsp;  neopixelWrite(RGB_BUILTIN,0,0,RGB_BRIGHTNESS); // Blue
+&nbsp;  delay(1000);
+&nbsp;  neopixelWrite(RGB_BUILTIN,0,0,0); // Off / Black
+&nbsp;  delay(1000);
 }
 </code></pre>
 <hr>

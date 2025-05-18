@@ -108,7 +108,7 @@ that uses the onboard RGB LED.
 YOU MAY NEED TO ADD:&nbsp;&nbsp; '#define RGB_BUILTIN 48'
 
 ——————————————————————————————————————————————————————————————
-## YD-ESP32-S3 N16R8 --by VCC-GND Studio
+## YD-ESP32-S3 N16R8 &nbsp;--by VCC-GND Studio
 
 The **YD-ESP32-S3** Core Board is designed by VCC-GND Studio. Visit
 www.vcc-gnd.com for purchase.<br/>The device uses the **ESP32-S3-WROOM-1**
@@ -309,9 +309,7 @@ void loop() {
 </code></pre>
 <hr>
 
-<hr>
 # BlinkRGB.ino
-
 <pre><code>
 /* BlinkRGB.ino
    ESP32-S3-WROOM-1 Dev / YD-ESP32-S3
@@ -349,7 +347,6 @@ void loop() {
 }
 </code></pre>
 <hr>
-
 
 # ESP32-S3-WROOM-1_Dev_Blink.ino
 <pre><code>
@@ -484,7 +481,6 @@ NOTE: We are initializing GPIO43 TX_LED and GPIO44 RX_LED pinMode()
 </code></pre>
 <hr>
 
-<hr>
 # ESP32-S3-BlinkRGB.ino
 <pre><code>
 /* ESP32-S3-BlinkRGB.ino
@@ -645,8 +641,8 @@ Serial Monitor:
 
 ----------------------------------------------------------------- */
 ```
-
 <hr>
+
 # YD-ESP32-S3_BlinkAllLEDs.ino
 <pre><code>
 // YD-ESP32-S3_BlinkAllLEDs.ino

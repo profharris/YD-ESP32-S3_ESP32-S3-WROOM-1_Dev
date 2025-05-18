@@ -68,7 +68,7 @@ ESP32-S3 Pins: 0…18 GPIO, 19…20 D+/D-, 21 GPIO, 22…25 Do Not Exist, GPIO21
 *******************************************************************************/
 ```
 ——————————————————————————————————————————————————————————————
-# NOTES¹: ‘RGB’, ‘IN-OUT’, and ‘USB-OTG’ solder jumper pads
+# NOTES¹:&nbsp; ‘RGB’, ‘IN-OUT’, and ‘USB-OTG’ solder jumper pads
 
 This ‘ESP32 S3 DevKitC1 Clone’ board has a solder pad jumper labled
 ‘**IN-OUT**’, another ‘**RGB**’ ( _RGB CTRL_ ), and third ‘**USB-OTG**’ 
@@ -94,11 +94,11 @@ pads - What do they do?
 https://www.reddit.com/r/esp32/comments/10rdngp/thirdparty_esp32s3_development_boards_inout_and/?rdt=39953
 
 ——————————————————————————————————————————————————————————————
-# NOTES²: WS2812 RGB LED (GPIO48)
+# NOTES²:&nbsp; WS2812 RGB LED (GPIO48)
 
 The RGB LED, when accessed as **LED_BUILTIN**,&nbsp; works with the Arduino IDE 
-common _digitalWrite()_ command.&nbsp; The RGB LED when accessed as **RGB_BUILTIN** 
-works with the _neopixelWrite()_ command.
+common _digitalWrite()_ command.<br/>
+The RGB LED when accessed as **RGB_BUILTIN** works with the _neopixelWrite()_ command.
 
 Arduino IDE:&nbsp; There is a _BlinkRGB.ino_ under the&nbsp; ESP32->GPIO examples
 that uses the onboard RGB LED.
@@ -110,26 +110,26 @@ YOU MAY NEED TO ADD:&nbsp;&nbsp; '#define RGB_BUILTIN 48'
 ——————————————————————————————————————————————————————————————
 ## YD-ESP32-S3 N16R8 --by VCC-GND Studio
 
-The YD-ESP32-S3 Core Board is designed by VCC-GND Studio. Visit
-www.vcc-gnd.com for purchase. The device uses the ESP32-S3-WROOM-1
+The **YD-ESP32-S3** Core Board is designed by VCC-GND Studio. Visit
+www.vcc-gnd.com for purchase.<br/>The device uses the **ESP32-S3-WROOM-1**
 SoC chip, which can be used for Internet-of-Things applications and
 can also be used for practical applications.
 
-It is equipped with two USBs, one is a hardware USB-to-Serial port
-via the CH343P (WCH Qinheng), and the other is ESP32-S3 USB port.
+It is equipped with two USB Type-C ports.&nbsp; one is a hardware USB-to-Serial port
+via the CH343P (WCH Qinheng),&nbsp; and the other is ESP32-S3 direct USB port.
 
-The YD-ESP32-S3 is an entry-level development board equipped with
-WiFi 802.11 b/g/n + Bluetooth® LE module ESP32-S3-WROOM-1.
+The YD-ESP32-S3 is an entry-level development board equipped with a 2.4GHz 
+WiFi 802.11 b/g/n + Bluetooth® LE module **ESP32-S3-WROOM-1**.
 
-Most of the pins of the modules on the board have been led out to
-the pin rows on both sides of the development board. Developers can
-easily connect various peripheral devices through jumpers, or plug
+Most of the pins of the modules on the board have been lead out to
+the pin rows on both sides of the development board.&nbsp; Developers can
+easily connect various peripheral devices through jumpers,&nbsp; or plug
 the development board into a breadboard for use.
 
 ***REF:*** YD-ESP32-S3 N16R8 &nbsp;(ESP32-S3-WROOM-1 Dev N8R2)
 
 ——————————————————————————————————————————————————————————————
-## [CircuitPython 8.2.8] Built-in modules available:<br/>
+## [CircuitPython 8.2.8] &nbsp;Built-in modules available:<br/>
 https://circuitpython.org/board/yd_esp32_s3_n16r8/
 
 _asyncio, _bleio, _pixelmap, adafruit_bus_device, adafruit_pixelbuf,
@@ -148,7 +148,7 @@ time, touchio, traceback, ulab, usb_cdc, usb_hid, usb_midi, vectorio,
 watchdog, wifi, zlib; Included frozen(?) modules: neopixel
 
 ——————————————————————————————————————————————————————————————
-# NOTES³: All Pin Names and Functions
+# NOTES³:&nbsp; All Pin Names and Functions
 
 The two tables below provide the Name and Function of the Pins on
 both sides of this Dev board (J1 & J3).<br/>The Pin names are shown in
@@ -259,7 +259,6 @@ connectivity for a wide range of smart devices,&nbsp; making it ideal for Intern
 (IoT) applications.
 
 ```
-Parameters：
                   Microcontroller: ESP32-S3
                              Chip: WROOM-1-N16R8, WROOM-1-N8R2
                               CPU: Dual-core Xtensa 32-bit LX7
@@ -285,9 +284,10 @@ Tools > USB CDC On Boot > Enabled<br/>
 if using the USB OTG USB-C port.
 
 ——————————————————————————————————————————————————————————————
-
 <hr>
+
 # Blink.ino
+
 <pre><code>
 /* Blink.ino
    https://www.arduino.cc/en/Tutorial/BuiltInExamples/Blink
@@ -311,6 +311,7 @@ void loop() {
 
 <hr>
 # BlinkRGB.ino
+
 <pre><code>
 /* BlinkRGB.ino
    ESP32-S3-WROOM-1 Dev / YD-ESP32-S3
@@ -349,7 +350,7 @@ void loop() {
 </code></pre>
 <hr>
 
-<hr>
+
 # ESP32-S3-WROOM-1_Dev_Blink.ino
 <pre><code>
 /******************************************************************

@@ -1,0 +1,283 @@
+=====================================
+USB CDC and DFU SoC Firmware Flashing
+=====================================
+
+Introduction:
+
+‘USB DFU’ (Device Firmware Upgrade) and ‘USB CDC’ (Communications
+Device Class) are both USB protocols used for communicating with
+devices, but they serve different purposes. ‘USB DFU’ is primarily
+for firmware upgrades only, while ‘USB CDC’ is more general-purpose,
+enabling communication like using Serial interfaces.
+
+Since the ESP32-S2 introduction, Espressif has been working on USB
+peripheral support for some of the SoC families, including the
+new ESP32-C3 and the ESP32-S3.
+
+This new peripheral support allows a lot of new possibilities,
+including flashing the firmware directly to the SoC without any
+external USB-to-Serial converter.
+
+In this tutorial you will be guided on how to use the ‘embedded USB’
+to flash the firmware.
+
+The current list of supported SoCs:
+
+    SoC         USB Peripheral Support
+    --------    ----------------------
+    ESP32-S2    CDC and DFU
+    ESP32-C3    CDC only
+    ESP32-S3    CDC and DFU
+    ESP32-C6    CDC only
+    ESP32-H2    CDC only
+
+================
+Key Differences:
+================
+
+Feature             USB DFU             USB CDC
+-----------------------------------------------------------------------
+Primary Purpose     Firmware upgrade    General-purpose communication
+                                        (e.g., Serial Interface)
+Functionality       Firmware flashing,  Serial communication, logging,
+                    device upgrade      debugging
+
+Common Use Cases    Updating device     Debugging, logging, interacting
+                    firmware            with the device through a
+                                        serial console
+
+Suitability         Limited, primarily  Suitable for development,
+for Development     for flashing        allowing for logging, debugging,
+                                        and interaction
+
+It’s important that your board includes the USB connector attached
+to the embedded USB from the SoC. If your board doesn’t have the USB
+connector, you can attach an external one to the USB pins (D+ & D-).
+
+These instructions will only work on the supported devices with the
+embedded ‘USB peripheral’. This tutorial will not work if you are
+using an external USB-to-serial converter like FTDI, CP210x, CH34x,
+etc.
+
+For a complete reference to the ‘Arduino IDE tools menu’, please see
+the “Tools Menus reference guide”.
+https://docs.espressif.com/projects/arduino-esp32/en/latest/guides/tools_menu.html
+
+========
+USB DFU:
+========
+
+‘USB DFU’ is used as a flash memory programming protocol in SoC
+microcontrollers with ‘built-in’ USB bootloader functionality.
+Unlike ‘OTA’, ‘USB DFU’ works with NO firmware on the module, and it
+can be used to load firmware before WiFi works & without interfering
+with it.
+
+‘USB DFU’ (Device Firmware Upgrade) is a class specification of the
+USB standard that adds the ability to upgrade device firmware via
+the USB interface.
+
+Purpose:
+--------
+    Primarily designed for updating the firmware of a device.
+
+Functionality:
+--------------
+    Implements a special mode where the device enters a state where
+    it can receive and apply firmware updates from a host computer.
+
+Example:
+--------
+    Firmware flashing for an ESP32 using DFU, typically using the
+    “Manual Download Mode”.
+
+Advantages:
+-----------
+    Can be advantageous when a product doesn’t include a UART-to-USB
+    converter, simplifying the update process.
+
+Limitations:
+------------
+    Not suitable for logging or general Serial communication, mainly
+    focused on firmware upgrades.
+
+Overview of USB DFU (Device Firmware Upgrade)
+---------------------------------------------
+
+USB DFU (Device Firmware Upgrade) is a standardized mechanism to
+update the firmware of a USB device. It allows peripheral devices to
+have their firmware upgraded through a USB connection, bypassing the
+need for physical replacement or rewiring hardware connections. DFU
+is widely used in applications where devices require consistent
+updates or upgrades such as smartphones, tablets, and various
+embedded systems.
+
+Key Features of USB DFU
+-----------------------
+
+Diverse Application: DFU is applicable to a broad range of devices:
+from microcontrollers to complex computing hardware. It allows
+developers to continuously improve device software post-deployment.
+
+Bidirectional Communication: In DFU mode, devices can both download
+firmware updates and upload diagnostic data back to the host, aiding
+in testing and troubleshooting.
+
+Standardization: The DFU protocol is part of the official USB standards,
+specifically the USB 2.0 Specification, making it widely acknowledged
+and implemented across various industries.
+
+Benefits of USB DFU
+-------------------
+
+Preventing Bricking: DFU provides a safeguard against the device
+becoming inoperable during a failed firmware upgrade, by allowing
+rollback or repeat upgrades.
+
+Ease of Use: The USB interface’s ubiquity and simplicity, combined
+with standardized protocols, facilitates straightforward and uniform
+firmware management across device classes.
+
+Upgrade Efficiency: The ability to update firmware over a USB port
+can streamline maintenance and upgrades, reducing the necessary
+downtime and avoiding costly hardware replacements.
+
+
+Flashing Using USB DFU:
+-----------------------
+
+NOTE: ‘DFU Mode’ is only supported by the ESP32-S2 & ESP32-S3 SoCs.
+      See the table above of supported SoCs.
+
+To use ‘USB DFU’ to flash your device, you will need to configure
+some settings in the Arduino IDE according to the following steps:
+
+ 1. Enter into “Download Mode” manually
+
+    This step is done only for the first time you flash the firmware
+    in this mode. To enter into “Download Mode”, you need to press
+    & hold [BOOT] button then press & release the [RESET] button.
+
+    To check if this procedure was done correctly, now you will see
+    the new USB device listed in the available ports. Select this
+    new device in the ‘Port option’.
+
+ 2. Configuring USB DFU
+
+    In the next step you set ‘USB DFU’ as the “default” on BOOT
+    and for flashing.
+
+    Go to the ‘Tools menu’ in the Arduino IDE and set the following
+    options:
+
+        For ESP32-S2:
+            USB DFU On Boot -> Enable
+            Upload Mode     -> Internal USB
+
+        For ESP32-S3:
+            USB DFU On Boot -> Enabled
+            USB Mode        -> USB-OTG (TinyUSB)
+
+ 3. Flash:
+
+    Now you can upload your sketch to the device. After flashing,
+    you need to manually ‘Reset’ the device.
+
+NOTE: With ‘USB DFU’, you cannot use the USB for Serial Output, for
+      logging, just for flashing. To enable the Serial Output, use
+      the ‘USB CDC’ option instead.
+
+      If you want to use the ‘USB DFU’ for just upgrading firmware
+      using the manual download mode, this will work just fine,
+      however, for developing please consider using ‘USB CDC’.
+
+
+========
+USB CDC:
+========
+
+‘USB CDC’ (Communications Device Class) allows you to communicate
+with your device like a Serial Interface. This mode can be used on
+the supported targets to flash, and monitor the device in a similar
+way as on devices that use the external Serial interfaces.
+
+Purpose:
+--------
+    Enables general-purpose communication between a device and a
+    host computer, often mimicking a Serial Interface.
+
+Functionality:
+--------------
+    Allows for Serial communication, including logging, debugging,
+    and sending/receiving data.
+
+Example:
+--------
+    Using CDC for logging output from a device, or for interacting
+    with the device through a Serial Console.
+
+Advantages:
+-----------
+    Offers a versatile communication channel, enabling logging,
+    debugging, and general-purpose data exchange.
+
+Limitations:
+------------
+    Not specifically designed for firmware upgrades.
+
+
+Flashing Using USB CDC:
+-----------------------
+
+To use ‘USB CDC’ to flash your device, you will need to configure
+some settings in the Arduino IDE according to the following steps:
+
+
+ 1. Enter into “Download Mode” manually
+
+    Similar to the ‘DFU mode’, you will need to enter into “Download
+    Mode” manually. To enter into the “Download Mode”, you need to
+    press and hold the [BOOT] button & press and release the [RESET]
+    button.
+
+    To check if this procedure was done correctly, now you will see
+    the new USB device listed in the available ports. Select this
+    new device in the Port option.
+
+ 2. Configuring USB CDC
+
+    Go to the ‘Tools menu’ in the Arduino IDE and set the following
+    options:
+
+        For ESP32-S2:
+            USB CDC On Boot -> Enabled
+            Upload Mode     -> Internal USB
+
+        For ESP32-C3
+            USB CDC On Boot -> Enabled
+
+        For ESP32-S3
+            USB CDC On Boot -> Enabled
+            Upload Mode     -> UART0 / Hardware CDC
+
+ 3. Flash and Monitor
+
+    You can now upload your sketch to the device. After flashing for
+    the first time, you will need to manually ‘Reset’ the device.
+
+    This procedure enables the flashing and monitoring though the
+    internal USB and DOES NOT requires you to manually enter into
+    the “Download Mode” or to do the manual ‘Reset’ after flashing.
+
+    To monitor your device, you need to select the USB port and open
+    the Serial Monitor tool selecting the correct baud rate (usually
+    115200) according to the ‘Serial.begin()’ defined in your code.
+
+
+Hardware:
+---------
+
+If you are developing custom hardware using a compatible SoC, and
+want to remove the external ‘USB-to-Serial’ chip, this feature will
+completely substitute the needs of the external chip. See the SoC
+datasheet for more details about this peripheral option.

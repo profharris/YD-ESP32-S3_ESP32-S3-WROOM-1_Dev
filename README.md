@@ -67,6 +67,7 @@ ESP32-S3 Pins: 0…18 GPIO, 19…20 D+/D-, 21 GPIO, 22…25 Do Not Exist, GPIO21
 
 *******************************************************************************/
 ```
+————————————————————————————————————————————————————————————————————
 # NOTES¹: ‘RGB’, ‘IN-OUT’, and ‘USB-OTG’ solder jumper pads
 
 This ‘ESP32 S3 DevKitC1 Clone’ board has a solder pad jumper called
@@ -90,7 +91,7 @@ REF: Third-party ESP32-S3 development boards ‘IN-OUT’ and ‘USB-OTG’
 pads - What do they do?
 https://www.reddit.com/r/esp32/comments/10rdngp/thirdparty_esp32s3_development_boards_inout_and/?rdt=39953
 
---------------------------------------------------------------------
+————————————————————————————————————————————————————————————————————
 # NOTES²: WS2812 RGB LED (GPIO48)
 
 The RGB LED, accessed as LED_BUILTIN, works with Arduino IDE common
@@ -103,9 +104,9 @@ Arduino IDE:
 
 REF: https://forum.arduino.cc/t/esp32-s3-devkit-problems/1136923/4
 
-MAY NEED TO ADD: '#define RGB_BUILTIN 48'
+YOU MAY NEED TO ADD: '#define RGB_BUILTIN 48'
 
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+————————————————————————————————————————————————————————————————————
 https://circuitpython.org/board/yd_esp32_s3_n16r8/
 
 ## YD-ESP32-S3 N16R8 --by VCC-GND Studio
@@ -128,7 +129,7 @@ the development board into a breadboard for use.
 
 REF: YD-ESP32-S3 N16R8  (ESP32-S3-WROOM-1 Dev N8R2)
 
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+————————————————————————————————————————————————————————————————————
 ## [CircuitPython 8.2.8] Built-in modules available:
 
 _asyncio, _bleio, _pixelmap, adafruit_bus_device, adafruit_pixelbuf,
@@ -146,7 +147,7 @@ socketpool, ssl, storage, struct, supervisor, synthio, sys, terminalio,
 time, touchio, traceback, ulab, usb_cdc, usb_hid, usb_midi, vectorio,
 watchdog, wifi, zlib; Included frozen(?) modules: neopixel
 
-================================================================================
+————————————————————————————————————————————————————————————————————
 # NOTES³: All Pin Names and Functions
 
 The two tables below provide the Name and Function of the Pins on
@@ -213,9 +214,10 @@ No. Name    Type¹   Function
 
 Type¹:  P: Power; G: Ground; I: Input; O: Output; T: High impedance.
 ```
-================================================================================
-### The ESP32-S3 peripherals include:
 
+————————————————————————————————————————————————————————————————————
+### The ESP32-S3 peripherals include:
+```
    20 Analog-to-Digital Converter (ADC) channels
     4 SPI interfaces
     3 UART interfaces
@@ -223,7 +225,7 @@ Type¹:  P: Power; G: Ground; I: Input; O: Output; T: High impedance.
     8 PWM output channel
     2 I²S interfaces
    14 Capacitive sensing GPIOs
-
+```
 Due to the ESP32 chip multiplexing feature, you can assign almost
 any function to the GPIO of your choice. However, there are pins
 with assigned functions by default.
@@ -282,24 +284,25 @@ Analog-to-Digital Converter (ADC): 12-bit resolution
                     USB Interface: USB-UART bridge for programming
                                    and debugging
 ```
---------------------------------------------------------------------
+————————————————————————————————————————————————————————————————————
 
 Tools > USB CDC On Boot > Enabled<br/>
 if using the USB OTG USB-C port.
 
-====================================================================
-```
+————————————————————————————————————————————————————————————————————
+
+<hr>
+# Blink.ino
+<pre><code>
 /* Blink.ino
    https://www.arduino.cc/en/Tutorial/BuiltInExamples/Blink
 */
-
 
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(115200);
 }
-
 
 void loop() {
   Serial.print('*');
@@ -308,9 +311,12 @@ void loop() {
   digitalWrite(LED_BUILTIN, LOW);   // turn the LED Off
   delay(1000);                      // wait for a second
 }
-```
-====================================================================
-```
+</code></pre>
+<hr>
+
+<hr>
+# BlinkRGB.ino
+<pre><code>
 /* BlinkRGB.ino
    ESP32-S3-WROOM-1 Dev / YD-ESP32-S3
 
@@ -345,9 +351,12 @@ void loop() {
   neopixelWrite(RGB_BUILTIN,0,0,0); // Off / black
   delay(1000);
 }
-```
-====================================================================
-```
+</code></pre>
+<hr>
+
+<hr>
+# ESP32-S3-WROOM-1_Dev_Blink.ino
+<pre><code>
 /******************************************************************
  * Filename    : ESP32-S3-WROOM-1_Dev_Blink.ino                   *
  * Description : Make the Green TX_LED and Blue RX_LED Blink.     *
@@ -476,16 +485,19 @@ NOTE: We are initializing GPIO43 TX_LED and GPIO44 RX_LED pinMode()
       our sketches, without interfearing with the UART output to
       the Serial Monitor?
 *******************************************************************/
-```
-====================================================================
-```
+</code></pre>
+<hr>
+
+<hr>
+# ESP32-S3-BlinkRGB.ino
+<pre><code>
 /* ESP32-S3-BlinkRGB.ino
    ESP32-S3-WROOM (CAM Module) | ESP32-S3-CAM
    ESP32-S3-WROOM-1 Dev N8R2   | ESP32-S3-DevKitC-1 | YD-ESP32-S3
 
    Demonstrate usage of onboard the RGB LED on some ESP Dev boards.
    Calls to digitalWrite(RGB_BUILTIN, HIGH) -will use the hidden
-   RGB driver. ** But, DO NOT re- #define RGB_BUILTIN, If so,
+   RGB driver.   --- But, DO NOT re- #define RGB_BUILTIN, If so,
    digitalWrite() will not work.
 
    neopixelWrite demonstrates controll of each color channel:
@@ -520,7 +532,7 @@ Arduino IDE > Tools                                  [CONFIGURATION]
 #ifdef  RGB_BRIGHTNESS      // if RGB_BRIGHTNESS is defined...
 #undef  RGB_BRIGHTNESS      // un-define it... then
 #define RGB_BRIGHTNESS 10   // Change color brightness (max 255)
-#endif
+#endf
 
 void setup() {
   Serial.begin(115200);             // initialize Serial Monitor
@@ -552,7 +564,9 @@ void loop() {
   rgbLedWrite(RGB_BUILTIN,0,0,0);               // OFF
   delay(1000);
 }
-```
+</code></pre>
+<hr>
+
 ```
 /*******************************************************************
 Sketch uses 323144 bytes (15%) of program storage space.
@@ -635,8 +649,10 @@ Serial Monitor:
 
 ----------------------------------------------------------------- */
 ```
-====================================================================
-```
+
+<hr>
+# YD-ESP32-S3_BlinkAllLEDs.ino
+<pre><code>
 // YD-ESP32-S3_BlinkAllLEDs.ino
 // ESP32-S3-WROOM-1 Dev (YD-ESP32-S3)
 
@@ -703,5 +719,5 @@ void BlinkRGBLED() {
   rgb_led.show();
   delay(500);
 }
-```
-====================================================================
+</code></pre>
+<hr>

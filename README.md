@@ -21,8 +21,8 @@ than the RGB LED is a second pair of solder jumper pads labled
 jumber pads labled ‘**USB-OTG**’. The function of these solder jumpers
 are discussed a little later below under ‘NOTES¹’.
 
-/*******************************************************************************
 ```
+/*******************************************************************************
 ESP32-S3-WROOM-1 Dev (YD-ESP32-S3)  (44-Pin)     ESP32-S3 Dev Module
 
     Same pinout as Espressif ESP32-S3-DevKitC-1, except 1-pin space
@@ -67,7 +67,7 @@ ESP32-S3 Pins: 0…18 GPIO, 19…20 D+/D-, 21 GPIO, 22…25 Do Not Exist, GPIO21
 
 *******************************************************************************/
 ```
-————————————————————————————————————————————————————————————————————
+——————————————————————————————————————————————————————————————
 # NOTES¹: ‘RGB’, ‘IN-OUT’, and ‘USB-OTG’ solder jumper pads
 
 This ‘ESP32 S3 DevKitC1 Clone’ board has a solder pad jumper called
@@ -91,7 +91,7 @@ REF: Third-party ESP32-S3 development boards ‘IN-OUT’ and ‘USB-OTG’
 pads - What do they do?
 https://www.reddit.com/r/esp32/comments/10rdngp/thirdparty_esp32s3_development_boards_inout_and/?rdt=39953
 
-————————————————————————————————————————————————————————————————————
+——————————————————————————————————————————————————————————————
 # NOTES²: WS2812 RGB LED (GPIO48)
 
 The RGB LED, accessed as LED_BUILTIN, works with Arduino IDE common
@@ -106,7 +106,7 @@ REF: https://forum.arduino.cc/t/esp32-s3-devkit-problems/1136923/4
 
 YOU MAY NEED TO ADD: '#define RGB_BUILTIN 48'
 
-————————————————————————————————————————————————————————————————————
+——————————————————————————————————————————————————————————————
 https://circuitpython.org/board/yd_esp32_s3_n16r8/
 
 ## YD-ESP32-S3 N16R8 --by VCC-GND Studio
@@ -129,7 +129,7 @@ the development board into a breadboard for use.
 
 REF: YD-ESP32-S3 N16R8  (ESP32-S3-WROOM-1 Dev N8R2)
 
-————————————————————————————————————————————————————————————————————
+——————————————————————————————————————————————————————————————
 ## [CircuitPython 8.2.8] Built-in modules available:
 
 _asyncio, _bleio, _pixelmap, adafruit_bus_device, adafruit_pixelbuf,
@@ -147,7 +147,7 @@ socketpool, ssl, storage, struct, supervisor, synthio, sys, terminalio,
 time, touchio, traceback, ulab, usb_cdc, usb_hid, usb_midi, vectorio,
 watchdog, wifi, zlib; Included frozen(?) modules: neopixel
 
-————————————————————————————————————————————————————————————————————
+——————————————————————————————————————————————————————————————
 # NOTES³: All Pin Names and Functions
 
 The two tables below provide the Name and Function of the Pins on
@@ -215,7 +215,7 @@ No. Name    Type¹   Function
 Type¹:  P: Power; G: Ground; I: Input; O: Output; T: High impedance.
 ```
 
-————————————————————————————————————————————————————————————————————
+——————————————————————————————————————————————————————————————
 ### The ESP32-S3 peripherals include:
 ```
    20 Analog-to-Digital Converter (ADC) channels
@@ -284,12 +284,12 @@ Analog-to-Digital Converter (ADC): 12-bit resolution
                     USB Interface: USB-UART bridge for programming
                                    and debugging
 ```
-————————————————————————————————————————————————————————————————————
+——————————————————————————————————————————————————————————————
 
 Tools > USB CDC On Boot > Enabled<br/>
 if using the USB OTG USB-C port.
 
-————————————————————————————————————————————————————————————————————
+——————————————————————————————————————————————————————————————
 
 <hr>
 # Blink.ino

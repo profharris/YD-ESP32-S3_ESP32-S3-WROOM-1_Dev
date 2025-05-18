@@ -39,7 +39,7 @@ void loop() {
   digitalWrite(LED_RX_PIN, LOW);
   delay(500);
 
-  BlinkRGBLED();                    // Blink the NeoPixel RGB LED
+  BlinkRGBLED();                    // Blink the NeoPixel RGB LED White
 }
 
 

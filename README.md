@@ -68,7 +68,7 @@ ESP32-S3 Pins: 0…18 GPIO, 19…20 D+/D-, 21 GPIO, 22…25 Do Not Exist, GPIO21
 *******************************************************************************/
 ```
 ———————————————————————————————————————————————————
-# NOTES¹:&nbsp; ‘RGB’, ‘IN-OUT’, and ‘USB-OTG’ solder jumper pads
+# NOTES¹:&nbsp; ‘RGB’ ‘IN-OUT’ ‘USB-OTG’ solder jumper pads
 
 This ‘ESP32 S3 DevKitC1 Clone’ board has a solder pad jumper labled
 ‘**IN-OUT**’, another ‘**RGB**’ ( _RGB CTRL_ ), and third ‘**USB-OTG**’
@@ -560,7 +560,6 @@ void loop() {
 <hr>
 
 ```
-/*******************************************************************
 Sketch uses 323144 bytes (15%) of program storage space.
   Maximum is 2097152 bytes.
 Global variables use 20052 bytes (6%) of dynamic memory,
@@ -612,7 +611,6 @@ Hash of data verified.
 
 Leaving...
 Hard resetting via RTS pin...
-*******************************************************************/
 ```
 ```
 /* -----------------------------------------------------------------
@@ -638,7 +636,6 @@ Serial Monitor:
 05:05:36.695 -> Blink White!
 05:05:38.659 -> Blink Red!... Blink Green!... Blink Blue!
 05:05:40.641 -> ...
-
 ----------------------------------------------------------------- */
 ```
 <hr>
@@ -648,7 +645,7 @@ Serial Monitor:
 // YD-ESP32-S3_BlinkAllLEDs.ino
 // ESP32-S3-WROOM-1 Dev (YD-ESP32-S3)
 
-#include <Adafruit_NeoPixel.h>  // Adafruit NeoPixel Graphics lib
+#include `<Adafruit_NeoPixel.h>`  // Adafruit NeoPixel Graphics lib
 
 #define LED_TX_PIN  43          // Define pins for the LEDs
 #define LED_RX_PIN  44
